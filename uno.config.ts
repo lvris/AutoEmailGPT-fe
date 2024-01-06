@@ -1,9 +1,14 @@
 // uno.config.ts
-import { defineConfig, presetAttributify, presetUno } from 'unocss'
+import { defineConfig, presetAttributify, presetUno, presetIcons } from 'unocss'
 
 export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
+    presetIcons({
+      extraProperties: {
+        'display': 'inline-block',
+      }
+    })
   ]
 })
