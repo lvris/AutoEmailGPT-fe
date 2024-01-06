@@ -56,23 +56,27 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import { getConfig, postConfig } from '~/apis/callAPI';
+import { IConfig } from '~/interfaces/config.interface';
 
-const model = ref({
-  "gpt_apikey": "pk-vv7rP9NY7aRecHgX6mzVDGbstyIdWLi7o-mh1io24Ps",
-  "gpt_server": "https://chat.lvris.com/chat2api/v1",
-  "password": "PJIKJQNZJJWDOLTA",
-  "pattern": "r'Python.+",
-  "pop3_server": "pop.163.com",
-  "smtp_port": "465",
-  "smtp_server": "smtp.163.com",
-  "username": "lvris233@163.com"
+const model = ref<IConfig>({
+  "gpt_apikey": "placeholder",
+  "gpt_server": "placeholder",
+  "password": "placeholder",
+  "pattern": "placeholder",
+  "pop3_server": "placeholder",
+  "smtp_port": 0,
+  "smtp_server": "placeholder",
+  "username": "placeholder",
 })
 
 function updateForm() {
-  console.log(model.value);
+  postConfig(model.value)
 }
 
 function refreshForm() {
-  console.log("refresh");
+  getConfig().then(value => {
+    model.value = value;
+  })
 }
 </script>

@@ -2,6 +2,7 @@
 </script>
 
 <template>
+<n-message-provider>
   <n-layout mx-80>
     <dash-board my-10/>
 
@@ -10,7 +11,7 @@
     <n-layout has-sider my-10>
       <n-layout-sider
         collapse-mode="width"
-        :collapsed-width="360"
+        :collapsed-width="300"
         :width="480"
         show-trigger="arrow-circle"
         bordered
@@ -26,6 +27,7 @@
 
     <!-- <n-footer>hello</n-footer> -->
   </n-layout>
+</n-message-provider>
 </template>
 
 <style scoped>

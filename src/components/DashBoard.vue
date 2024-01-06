@@ -46,18 +46,27 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { postRun, getLastTime } from '~/apis/callAPI';
+import { useMessage } from 'naive-ui'
 
-const intervel = ref(0)
-const timestamp = ref(1704465548.523698)
+const message = useMessage();
+const intervel = ref(0);
+const timestamp = ref(1704465548.523698);
 
 function runOnce() {
-  console.log("once");
+  postRun(true).then(value => {
+    message.success(value.message);
+    getLastTime().then(value => {
+      console.log(value.timestamp);
+      timestamp.value = value.timestamp;
+    })
+  })
 }
 
 function runInterval() {
-  console.log(intervel.value);
+  postRun(false, intervel.value).then(value => {
+    message.success(value.message);
+  })
 }
-
-
 
 </script>

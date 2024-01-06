@@ -11,7 +11,7 @@ const request = axios.create({
 request.interceptors.request.use(
   config => {
     // Base
-    config.baseURL = import.meta.env.VITE_BASE;
+    config.baseURL = 'http://127.0.0.1:5000/';
     // Token
     const token = localStorage.getItem('token');
     if (token) {
