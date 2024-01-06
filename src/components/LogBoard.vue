@@ -28,7 +28,7 @@
 
   <n-modal v-model:show="showModal">
     <n-card
-      style="width: 600px"
+      style="width: 800px"
       :title="currentTitle"
       :bordered="false"
       size="huge"
